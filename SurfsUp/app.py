@@ -49,10 +49,12 @@ def home():
         f"/api/v1.0/startend/<start>/<end> <br/>"
         f"<br/><br/>"
         f"enter dates: YYYYMMDD"
+        f"date range available: 2010-01-01 through 2017-08-23"
     )
 
 @app.route("/api/v1.0/precipitation")
 def precipitation():
+    """Last 12 months of precipitation data"""
     #Create our session from Python to the DB
     session = Session(engine)
 
@@ -74,6 +76,7 @@ def precipitation():
 
 @app.route("/api/v1.0/stations")
 def stations():
+    """JSON list of stations from the dataset"""
     #Create our session from Python to the DB
     session = Session(engine)
 
@@ -89,6 +92,7 @@ def stations():
 
 @app.route("/api/v1.0/tobs")
 def tobs():
+    """Dates and temperature observations(tobs) of the most-active station for the previous year of data"""
     #Create our session from Python to the DB
     session = Session(engine)
 
